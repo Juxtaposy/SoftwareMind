@@ -9,12 +9,44 @@ public class Team {
 
     private long id;
     private List<Person> personList;
-    private double avarageRate;
+    private double averageRate;
 
     public Team(){
         this.id = idCounter;
         this.personList = new ArrayList<>();
-        this.avarageRate = 0;
+        this.averageRate = 0;
         idCounter++;
     }
+
+    public Team(List<Person> personList){
+        this.id = idCounter;
+        this.personList = personList;
+        updateAverageRate();
+        idCounter++;
+    }
+
+    public long getId(){
+        return this.id;
+    }
+
+    public double getAverageRate(){
+        return averageRate;
+    }
+
+    public Person getPerson(String name){
+        return personList.stream().filter(person -> name.equals(person.getName()))
+                .findAny()
+                .orElse(null);
+    }
+
+    private void updateAverageRate(){
+        averageRate = personList.stream()
+                .reduce(0.0, (partialSum, person) -> partialSum + person.getRate(), Double::sum)
+                /personList.size();
+    }
+    public void addPerson(Person person){
+        personList.add(person);
+        updateAverageRate();
+    }
+
 }
