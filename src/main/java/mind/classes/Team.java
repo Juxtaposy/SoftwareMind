@@ -7,8 +7,8 @@ public class Team {
 
     private static long idCounter = 1;
 
-    private long id;
-    private List<Person> personList;
+    private final long id;
+    private final List<Person> personList;
     private double averageRate;
 
     public Team(){
@@ -33,7 +33,7 @@ public class Team {
         return averageRate;
     }
 
-    public Person getPerson(String name){
+    public Person getPersonByName(String name){
         return personList.stream().filter(person -> name.equals(person.getName()))
                 .findAny()
                 .orElse(null);
