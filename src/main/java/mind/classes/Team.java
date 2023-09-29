@@ -33,6 +33,10 @@ public class Team {
         return averageRate;
     }
 
+    public List<Person> getPersonList(){
+        return personList;
+    }
+
     public Person getPersonByName(String name){
         return personList.stream().filter(person -> name.equals(person.getName()))
                 .findAny()
