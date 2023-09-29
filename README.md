@@ -1,2 +1,2 @@
 # SoftwareMind
-Software Mind tanks
+Software Mind task
