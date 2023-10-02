@@ -37,7 +37,7 @@ public class Main {
         else {
             int numOfPeople = 0;
             do {
-                System.out.println("Provide number of people: ");
+                System.out.println("Provide number of people greater than 0: ");
                 Scanner scan = new Scanner(System.in);
                 try {
                     numOfPeople = scan.nextInt();
@@ -83,7 +83,8 @@ public class Main {
                 personList.add(new Person(name, rate));
             }
         }
-
+        System.out.println("Each data entry: ");
+        personList.forEach(p -> System.out.println(p.getName() + " " + p.getRate()));
 
     }
 
