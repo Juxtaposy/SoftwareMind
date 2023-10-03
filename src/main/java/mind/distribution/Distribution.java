@@ -14,15 +14,12 @@ public class Distribution {
         boolean order = true;
         while (!personDeque.isEmpty()){
             for (int i = 0; i < numberOfTeams; i++){
-                try {
-                    if (order) {
-                        teamList.get(i).addPerson(personDeque.pollFirst());
-                    } else {
-                        teamList.get(i).addPerson(personDeque.pollLast());
-                    }
-                }
-                catch (NullPointerException e){
-                    break;
+                if (!personDeque.isEmpty()) {
+                        if (order) {
+                            teamList.get(i).addPerson(personDeque.pollFirst());
+                        } else {
+                            teamList.get(i).addPerson(personDeque.pollLast());
+                        }
                 }
             }
             order = !order;
