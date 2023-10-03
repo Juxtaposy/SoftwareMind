@@ -26,9 +26,9 @@ public class UserInputControl {
         return input;
     }
 
-    public  static int getPersonNumber(int input) {
+    public  static int getNumberOfPeople(int input) {
         if (input == 1) {
-            return 3;
+            return 6;
         }
         else {
             int numOfPeople = 0;
@@ -51,7 +51,7 @@ public class UserInputControl {
         } else {
             int numOfTeams = 0;
             do {
-                System.out.println("Provide number of teams less or equal to number of people: ");
+                System.out.println("Provide number of teams less or equal to number of people (" + numOfPeople + "): ");
                 Scanner scan = new Scanner(System.in);
                 try {
                     numOfTeams = scan.nextInt();
@@ -91,14 +91,13 @@ public class UserInputControl {
                 System.out.printf("Person %d rate: ", i);
                 double rate = 0.0;
                 do {
-                    Scanner scan = new Scanner(System.in);
+                    Scanner scan = new Scanner(System.in).useLocale(Locale.US);
                     try {
                         rate = scan.nextDouble();
                     } catch (Exception e) {
-                        System.out.println("Name has to be a number");
+                        System.out.println("Rate has to be a number");
                     }
                 } while (rate <= 0.0);
-
                 personList.add(new Person(name, rate));
             }
         }
@@ -112,19 +111,19 @@ public class UserInputControl {
                     .append("Team no ")
                     .append(t.getId())
                     .append(" has ")
-                    .append(t.getPersonList().size()).append(" players(s) ( ");
+                    .append(t.getPersonList().size()).append(" players(s) (");
             for (Person p : t.getPersonList()) {
                 displayResult
                         .append(p.getName())
                         .append(", ");
             }
-            displayResult.delete(displayResult.length() - 2, displayResult.length() - 1);
+            displayResult.delete(displayResult.length() - 2, displayResult.length());
             displayResult
                     .append("). Average rate: ")
-                    .append(t.getAverageRate())
+                    .append(String.format(Locale.US, "%.1f", t.getAverageRate()))
                     .append( "\n");
         }
-        System.out.println(displayResult);
+        System.out.print(displayResult);
         System.out.printf(Locale.US, "Teams rate standard deviation: %.2f%n", Std.calculateStd(teamList));
     }
 }
