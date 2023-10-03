@@ -106,13 +106,25 @@ public class UserInputControl {
     }
 
     public static void displayData(List<Team> teamList){
+        StringBuilder displayResult = new StringBuilder();
         for (Team t : teamList) {
-            System.out.print("Team no " + t.getId() + " has " + t.getPersonList().size() + " player(s) (");
+            displayResult
+                    .append("Team no ")
+                    .append(t.getId())
+                    .append(" has ")
+                    .append(t.getPersonList().size()).append(" players(s) ( ");
             for (Person p : t.getPersonList()) {
-                System.out.print(p.getName() + ", ");
+                displayResult
+                        .append(p.getName())
+                        .append(", ");
             }
-            System.out.print("). Average rate: " + t.getAverageRate() + "\n");
+            displayResult.delete(displayResult.length() - 2, displayResult.length() - 1);
+            displayResult
+                    .append("). Average rate: ")
+                    .append(t.getAverageRate())
+                    .append( "\n");
         }
+        System.out.println(displayResult);
         System.out.printf(Locale.US, "Teams rate standard deviation: %.2f%n", Std.calculateStd(teamList));
     }
 }
