@@ -6,6 +6,10 @@ This is console program to evenly distribute players between teams.
 User can either use the predefined data or provide custom data through console
 when prompted.
 
+Java version: 17
+
+Dependencies: JUnit 4
+
 # Setup - IntelliJ IDE
 Project built using IntelliJ IDE Community Edition.
 
