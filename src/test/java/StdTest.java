@@ -8,7 +8,13 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Tests for Std class methods.
+ */
 public class StdTest {
+    /**
+     * Method for generating test data
+     */
     private List<Team> generateTestData(){
         Team team1 = new Team();
         team1.addPerson(new Person("Jude", 9));
@@ -29,11 +35,23 @@ public class StdTest {
 
         return teamList;
     }
+
+    /**
+     * Mean calculation
+     */
     private final double mean = Std.calculateMean(generateTestData());
+
+    /**
+     * Deviations calculation
+     */
     private final List<Double> calculatedDeviations = Std.calculateDeviations(
             mean,
             generateTestData()
     );
+
+    /**
+     * Variance calculation
+     */
     private final double variance = Std.calculateVariance(mean, calculatedDeviations);
 
     @Test

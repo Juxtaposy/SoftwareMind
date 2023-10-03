@@ -11,6 +11,9 @@ import static org.junit.Assert.assertEquals;
 
 public class DistributionTest {
 
+    /**
+     * Generate test data method for Tests.
+     */
     public LinkedList<Person> generateTestData(){
         LinkedList<Person> testList = new LinkedList<Person>();
         testList.add(new Person("Five", 7));
@@ -24,6 +27,11 @@ public class DistributionTest {
 
         return testList;
     }
+
+    /**
+     * Test for correct distribution of Person Objects
+     * with predefined data.
+     */
     @Test
     public void testDistributePeopleByOne(){
 

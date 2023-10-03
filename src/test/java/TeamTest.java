@@ -7,8 +7,14 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Basic tests for Team class
+ */
 public class TeamTest {
 
+    /**
+     * Method for test data generation
+     */
     public List<Person> generateSimpleTestData() {
         Person testOne = new Person("Test1", 5);
         Person testTwo = new Person("Test2", 8);
@@ -18,9 +24,15 @@ public class TeamTest {
         testList.add(testOne);
         testList.add(testTwo);
         testList.add(testThree);
+
         return testList;
     }
 
+    /**
+     * This method test auto ID increment.
+     * Should be called as first method due
+     * to the scope of the Team class in TeamTest.
+     */
     @Test
     public void testAutoIdIncrease(){
         Team team1 = new Team();
@@ -43,8 +55,12 @@ public class TeamTest {
         assertEquals("Test",team.getPersonByName("Test").getName());
     }
 
+    /**
+     * Test for calculating average rate of Team after
+     * sequential addition of Person objects
+     */
     @Test
-    public void testSequentialAddPersonAndAverageCalculation(){
+    public void testSequentialAddPersonAndAverageRateCalculation(){
         Team team = new Team();
         team.addPerson(new Person("Test1", 5));
         assertEquals(5, team.getAverageRate(), 0.001);
@@ -54,8 +70,12 @@ public class TeamTest {
         assertEquals(26.0/3, team.getAverageRate(), 0.001);
     }
 
+    /**
+     * Test for correct average rate calculation when
+     * list of Person objects is provided as input
+     */
     @Test
-    public void testAddPersonsAsList(){
+    public void testAddPersonsAsListAndAverageRateCalculation(){
         Team team = new Team(generateSimpleTestData());
         assertEquals(26.0/3, team.getAverageRate(), 0.001);
     }

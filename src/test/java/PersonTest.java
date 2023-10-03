@@ -3,7 +3,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Basic tests for Person class
+ */
 public class PersonTest {
+
     public Person generateTestPerson(){
         return new Person("Test", 10);
     }
