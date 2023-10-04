@@ -28,7 +28,7 @@ Compile using: javac mind/Main.java
 Run using: java mind.Main
 
 Running tests from command line is not recommended. If, however it is required, it can be done
-using maven.
+using maven. Installing maven can be found here: https://phoenixnap.com/kb/install-maven-windows
 
 Navigate to main project folder, where pom.xml is located. 
 
