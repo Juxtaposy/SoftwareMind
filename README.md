@@ -10,6 +10,8 @@ Java version: 17
 
 Dependencies: JUnit 4
 
+Build tool: Maven
+
 # Setup - IntelliJ IDE
 Project built using IntelliJ IDE Community Edition.
 
@@ -25,8 +27,14 @@ Compile using: javac mind/Main.java
 
 Run using: java mind.Main
 
-Running tests from command line is not recommended as it requires providing
-JUnit.jar file. 
+Running tests from command line is not recommended. If, however it is required, it can be done
+using maven.
+
+Navigate to main project folder, where pom.xml is located. 
+
+Run command: 'mvn clean test' to run all the test cases. 
+
+Run command: 'mvn test -Dtest="NameOfTestClass"' to test individual classes.
 
 # How to use
 On startup, program asks for data control value: '1' or '2'.
