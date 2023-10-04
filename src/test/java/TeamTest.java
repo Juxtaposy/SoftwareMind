@@ -30,15 +30,17 @@ public class TeamTest {
 
     /**
      * This method test auto ID increment.
-     * Should be called as first method due
-     * to the scope of the Team class in TeamTest.
+     * Creates two instances of the Team class
+     * and checks if the ID properly increases.
+     * This way test is resistant to different
+     * order of tests calling, which creates more
+     * Team instances each with individual ID.
      */
     @Test
     public void testAutoIdIncrease(){
         Team team1 = new Team();
-        assertEquals(1, team1.getId());
         Team team2 = new Team();
-        assertEquals(2, team2.getId());
+        assertEquals(team1.getId() + 1, team2.getId());
     }
 
     @Test
